@@ -2,6 +2,15 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+refs = {
+  input: document.querySelector('#datetime-picker'),
+  btn: document.querySelector('[data-start]'),
+  days: document.querySelector('[data-days]'),
+  hours: document.querySelector('[data-hours]'),
+  minutes: document.querySelector('[data-minutes]'),
+  seconds: document.querySelector('[data-seconds]'),
+};
+
 function convertMs(ms) {
   // Number of milliseconds per unit of time
   const second = 1000;
@@ -20,15 +29,6 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-refs = {
-  input: document.querySelector('#datetime-picker'),
-  btn: document.querySelector('[data-start]'),
-  days: document.querySelector('[data-days]'),
-  hours: document.querySelector('[data-hours]'),
-  minutes: document.querySelector('[data-minutes]'),
-  seconds: document.querySelector('[data-seconds]'),
-};
 
 const options = {
   enableTime: true,
