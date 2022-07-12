@@ -1,8 +1,6 @@
 const startBtnRef = document.querySelector('[data-start]')
 const stopBtnRef = document.querySelector('[data-stop]')
-const timerId = setInterval(() => {
-        document.body.style.backgroundColor = getRandomHexColor()
-    }, 1000);
+let timerId = null
 
 startBtnRef.addEventListener('click', startChangeColor)
 stopBtnRef.addEventListener('click', stopChangeColor)
@@ -13,7 +11,9 @@ function getRandomHexColor() {
 }
 
 function startChangeColor() {
-    timerId
+    timerId = setInterval(() => {
+        document.body.style.backgroundColor = getRandomHexColor()
+    }, 1000);
     startBtnRef.disabled = true
     stopBtnRef.disabled = false
 }
