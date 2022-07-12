@@ -11,24 +11,7 @@ refs = {
   seconds: document.querySelector('[data-seconds]'),
 };
 
-function convertMs(ms) {
-  // Number of milliseconds per unit of time
-  const second = 1000;
-  const minute = second * 60;
-  const hour = minute * 60;
-  const day = hour * 24;
-
-  // Remaining days
-  const days = Math.floor(ms / day);
-  // Remaining hours
-  const hours = Math.floor((ms % day) / hour);
-  // Remaining minutes
-  const minutes = Math.floor(((ms % day) % hour) / minute);
-  // Remaining seconds
-  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
-
-  return { days, hours, minutes, seconds };
-}
+refs.btn.disabled = true;
 
 const options = {
   enableTime: true,
@@ -49,8 +32,9 @@ const options = {
 flatpickr(refs.input, options);
 
 refs.btn.addEventListener('click', () => {
+  refs.btn.disabled = true;
   const selectedTime = Date.parse(refs.input.value);
-  refs.btn.disabled = false;
+
   timerId = setInterval(() => {
     const remainingTime = selectedTime - Date.now();
     updateTime(convertMs(remainingTime));
@@ -67,12 +51,24 @@ refs.btn.addEventListener('click', () => {
   }, 1000);
 });
 
-// function updateTime({days, hours, minutes, seconds}) {
-//     refs.days.textContent = days
-//     refs.hours.textContent = hours
-//     refs.minutes.textContent = minutes
-//     refs.seconds.textContent = seconds
-// }
+function convertMs(ms) {
+  // Number of milliseconds per unit of time
+  const second = 1000;
+  const minute = second * 60;
+  const hour = minute * 60;
+  const day = hour * 24;
+
+  // Remaining days
+  const days = Math.floor(ms / day);
+  // Remaining hours
+  const hours = Math.floor((ms % day) / hour);
+  // Remaining minutes
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  // Remaining seconds
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+  return { days, hours, minutes, seconds };
+}
 
 function addLeadingZero(value) {
   return String(value).padStart(2, 0);
