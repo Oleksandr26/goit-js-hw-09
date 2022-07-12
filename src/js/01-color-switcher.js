@@ -11,6 +11,7 @@ function getRandomHexColor() {
 }
 
 function startChangeColor() {
+    document.body.style.backgroundColor = getRandomHexColor()
     timerId = setInterval(() => {
         document.body.style.backgroundColor = getRandomHexColor()
     }, 1000);
