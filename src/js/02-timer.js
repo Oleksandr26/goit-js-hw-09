@@ -12,6 +12,7 @@ const refs = {
 };
 
 refs.btn.disabled = true;
+Notify.info('Please choose a date');
 
 const options = {
   enableTime: true,
