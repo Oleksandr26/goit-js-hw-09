@@ -47,7 +47,7 @@ refs.btn.addEventListener('click', () => {
   refs.btn.disabled = true;
   const selectedTime = Date.parse(refs.input.value);
 
-  timerId = setInterval(() => {
+  let timerId = setInterval(() => {
     const remainingTime = selectedTime - Date.now();
     updateTime(convertMs(remainingTime));
     console.log(remainingTime / 1000);
