@@ -88,3 +88,16 @@ function updateTime(date) {
     refs[key].textContent = addLeadingZero(value);
   });
 }
+
+// function stopInterval() {
+//   const selectedTime = Date.parse(refs.input.value);
+//   const remainingTime = selectedTime - Date.now();
+//   updateTime(convertMs(remainingTime));
+//   if (Math.floor(remainingTime / 1000) <= 0) {
+//     Notify.success('COMPLETED!!!', {
+//       timeout: 2500,
+//     });
+//     clearInterval(timerId);
+//     return;
+//   }
+// }
