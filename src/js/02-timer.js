@@ -50,7 +50,6 @@ refs.btn.addEventListener('click', () => {
   let timerId = setInterval(() => {
     const remainingTime = selectedTime - Date.now();
     updateTime(convertMs(remainingTime));
-    console.log(remainingTime / 1000);
     if (Math.floor(remainingTime / 1000) <= 0) {
       Notify.success('COMPLETED!!!', {
         timeout: 2500,

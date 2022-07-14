@@ -10,7 +10,6 @@ function createPromise(position, delay) {
     setTimeout(() => {
       if (shouldResolve) {
         resolve({ position, delay });
-        console.log(delay);
       } else {
         reject({ position, delay });
       }
