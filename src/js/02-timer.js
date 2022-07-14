@@ -9,8 +9,19 @@ const refs = {
   hours: document.querySelector('[data-hours]'),
   minutes: document.querySelector('[data-minutes]'),
   seconds: document.querySelector('[data-seconds]'),
+  timer: document.querySelector('.timer'),
 };
 
+refs.timer.style.display = 'flex';
+refs.timer.style.gap = '30px';
+refs.days.style.fontSize = '30px';
+refs.days.style.display = 'flex';
+refs.hours.style.fontSize = '30px';
+refs.hours.style.display = 'flex';
+refs.minutes.style.fontSize = '30px';
+refs.minutes.style.display = 'flex';
+refs.seconds.style.fontSize = '30px';
+refs.seconds.style.display = 'flex';
 refs.btn.disabled = true;
 Notify.info('Please choose a date');
 
@@ -44,9 +55,7 @@ refs.btn.addEventListener('click', () => {
       Notify.success('COMPLETED!!!', {
         timeout: 2500,
       });
-
       clearInterval(timerId);
-
       return;
     }
   }, 1000);
